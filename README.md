@@ -25,7 +25,7 @@ docker run --name jenkins-local --restart=on-failure --detach \
   --publish 8080:8080 --publish 50000:50000 \
   --volume jenkins-data:/var/jenkins_home \
   --volume jenkins-docker-certs:/certs/client:ro \
-  myjenkins-local:latest
+  jenkins-local:latest
 ```
 
 ## Access Jenkins admin password
@@ -34,8 +34,8 @@ After running the container, jenkins will ask for initial password.
 
 Execute the following command to access container shell.
 
-
+`docker exec -it jenkins-local bash`
 
 Get the password with the following command.
 
-`cat /var/lib/jenkins/secrets/initialAdminPassword`
+`cat /var/jenkins_home/secrets/initialAdminPassword`
